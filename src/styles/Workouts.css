@@ -1,0 +1,189 @@
+/* ========================= */
+/* General Container Styles */
+/* ========================= */
+.workouts-container {
+    text-align: center;
+    background: #f8f9fb;
+    min-height: 100vh;
+    align-items: center;
+    padding-top: 20px; /* Keep vertical padding */
+    width: 100%; /* Ensure it takes full width */
+}
+
+/* ========================= */
+/* Title Styles */
+/* ========================= */
+h2 {
+    font-size: 24px;
+    font-weight: bold;
+    color: #222;
+    margin-bottom: 15px;
+}
+
+/* ========================= */
+/* Filter Buttons */
+/* ========================= */
+.filter-container {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+}
+
+.filter-pill {
+    background: rgba(0, 0, 0, 0.1);
+    color: black;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: 0.3s ease-in-out;
+}
+
+.filter-pill.active {
+    background: black;
+    color: white;
+}
+
+/* ========================= */
+/* Workout List Styles */
+/* ========================= */
+.workouts-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+/* Workout Item */
+.workout-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: white;
+    padding: 16px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    text-align: left;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.workout-item:hover {
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Workout Icon */
+.workout-icon {
+    font-size: 26px;
+    margin-right: 15px;
+    color: black;
+}
+
+/* Workout Info */
+.workout-info {
+    flex: 1;
+}
+
+.workout-info h3 {
+    font-size: 18px;
+    margin: 0;
+    color: #222;
+}
+
+.workout-info p {
+    font-size: 14px;
+    color: gray;
+}
+
+/* ========================= */
+/* Progress Bar Styles */
+/* ========================= */
+.progress-bar {
+    width: 80px;
+    height: 6px;
+    background: rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    overflow: hidden;
+    margin-right: 10px;
+    position: absolute;
+    bottom: 12px;
+    left: 16px;
+}
+
+.progress-fill {
+    height: 100%;
+    background: black;
+    transition: width 0.5s ease-in-out;
+}
+
+/* Check Icon */
+.check-icon {
+    font-size: 18px;
+    color: black;
+    margin-left: 10px;
+}
+
+/* ========================= */
+/* Workout Details Bottom Sheet */
+/* ========================= */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.3); /* Light blur effect */
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    z-index: 999;
+}
+
+/* ========================= */
+/* Workout Bottom Sheet (Drawer) */
+/* ========================= */
+.workout-bottom-sheet {
+    width: 100%;
+    background: white;
+    border-radius: 20px 20px 0 0;
+    box-shadow: 0 -2px 20px rgba(0, 0, 0, 0.1);
+    padding: 20px 0 100px 0;
+    max-height: 80vh;
+    overflow-y: auto;
+    touch-action: none;
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Drag Handle */
+.workout-bottom-sheet::before {
+    content: "";
+    width: 40px;
+    height: 4px;
+    background: gray;
+    border-radius: 10px;
+    position: absolute;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+/* Close Button */
+.close-btn {
+    position: absolute;
+    top: 12px;
+    right: 16px;
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    color: gray;
+}
+
+.close-btn:hover {
+    color: black;
+}

@@ -1,0 +1,32 @@
+.app-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: black;
+    color: white;
+    border: none;
+    padding: 12px;
+    border-radius: 25px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+.app-button .action-icon {
+    font-size: 18px;
+    margin-right: 8px;
+}
+
+.app-button:active {
+    transform: scale(0.96);
+    transition: transform 0.1s ease;
+}
+
+.app-button.secondary {
+    background: gray;
+}
+
+.app-button.logout {
+    background: red;
+}
