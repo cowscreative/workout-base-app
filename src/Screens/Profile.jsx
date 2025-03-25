@@ -1,25 +1,20 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { motion } from "framer-motion";
 import { IoSettingsOutline, IoLogOutOutline } from "react-icons/io5";
 import { useNavigate } from "react-router-dom";
+import { clearWorkoutLogs } from "/src/utils/storage.js";
 import "/src/styles/Profile.css";
 
 function Profile() {
-    const [user, setUser] = useState({
+    const [user] = useState({
         email: "gibson@cowscreative.com",
         user_metadata: {
             name: "Gibson",
-            avatar_url: "/src/img/profile.png"
+            avatar_url: "./img/profile.png"
         }
     });
 
-    const [workoutStats, setWorkoutStats] = useState({ streak: 0, total: 0 });
     const navigate = useNavigate();
-
-    useEffect(() => {
-        // Fake stats for dev mode — replace with real API later
-        setWorkoutStats({ streak: 4, total: 36 });
-    }, []);
 
     return (
         <motion.div 
@@ -47,22 +42,6 @@ function Profile() {
             </motion.header>
 
             <motion.div 
-                className="profile-stats"
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.3, duration: 0.5 }}
-            >
-                <motion.div className="stat-card" whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-                    <h2>{workoutStats.streak}</h2>
-                    <p>Day Streak</p>
-                </motion.div>
-                <motion.div className="stat-card" whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-                    <h2>{workoutStats.total}</h2>
-                    <p>Total Workouts</p>
-                </motion.div>
-            </motion.div>
-
-            <motion.div 
                 className="profile-actions"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -86,6 +65,21 @@ function Profile() {
                 >
                     <IoLogOutOutline className="action-icon" />
                     Logout
+                </motion.button>
+
+                <motion.button 
+                    className="profile-btn danger"
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                    onClick={() => {
+                        if (confirm("Are you sure you want to clear all stats? This cannot be undone.")) {
+                            clearWorkoutLogs();
+                            alert("Stats cleared!");
+                            window.location.reload();
+                        }
+                    }}
+                >
+                    🗑️ Clear Stats
                 </motion.button>
             </motion.div>
         </motion.div>

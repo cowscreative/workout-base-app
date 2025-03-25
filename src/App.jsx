@@ -5,8 +5,9 @@ import Workouts from "./Screens/Workouts";
 import Stats from "./Screens/Stats";
 import Profile from "./Screens/Profile";
 import Settings from "./Screens/Settings";
+import WorkoutSession from "./Screens/WorkoutSession"; // <-- Add this line
 import BottomNav from "./UI/BottomNav";
-import ScrollToTop from "./Components/ScrollToTop.jsx"; // NEW
+import ScrollToTop from "./Components/ScrollToTop.jsx";
 import { IoChevronBackOutline, IoSettingsOutline } from "react-icons/io5";
 import "/src/styles/App.css";
 
@@ -34,18 +35,19 @@ function Header() {
 
 function App() {
     useEffect(() => {
-        const isDark = localStorage.getItem("darkMode") === "true";
-        if (isDark) {
-            document.body.classList.add("dark");
-        } else {
-            document.body.classList.remove("dark");
-        }
+        const hour = new Date().getHours();
+        const autoDark = hour < 6 || hour >= 18;
+
+        const stored = localStorage.getItem("darkMode");
+        const isDark = stored === null ? autoDark : stored === "true";
+
+        document.body.classList.toggle("dark", isDark);
     }, []);
 
     return (
         <>
             <Header />
-            <ScrollToTop /> {/* Auto-scroll on tab/page change */}
+            <ScrollToTop />
             <div className="container">
                 <Routes>
                     <Route path="/" element={<Home />} />
@@ -53,6 +55,7 @@ function App() {
                     <Route path="/stats" element={<Stats />} />
                     <Route path="/profile" element={<Profile />} />
                     <Route path="/settings" element={<Settings />} />
+                    <Route path="/start-workout" element={<WorkoutSession />} />
                 </Routes>
             </div>
             <BottomNav />

@@ -1,11 +1,12 @@
 import { useState, useEffect } from "react";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { workoutFilters, workouts as allWorkouts } from "/src/data/workouts";
 import "/src/styles/Workouts.css";
 
 function Workouts() {
     const location = useLocation();
+    const navigate = useNavigate();
     const queryParams = new URLSearchParams(location.search);
     const filterFromURL = queryParams.get("filter") || "All";
 
@@ -16,9 +17,7 @@ function Workouts() {
         setSelectedFilter(filterFromURL);
     }, [filterFromURL]);
 
-    const closeModal = () => {
-        setSelectedWorkout(null);
-    };
+    const closeModal = () => setSelectedWorkout(null);
 
     const handleOutsideClick = (event) => {
         if (event.target.classList.contains("modal-overlay")) {
@@ -29,6 +28,10 @@ function Workouts() {
     const filteredWorkouts = selectedFilter === "All"
         ? allWorkouts
         : allWorkouts.filter(workout => workout.tags.includes(selectedFilter));
+
+    const handleStartWorkout = () => {
+        navigate(`/start-workout?filter=${encodeURIComponent(selectedFilter)}`);
+    };
 
     return (
         <motion.div
@@ -82,6 +85,12 @@ function Workouts() {
                 ))}
             </motion.div>
 
+            {/* Start Workout Button */}
+                <button className="save-btn" onClick={handleStartWorkout}>
+                    Start Workout
+                </button>
+
+            {/* Workout Modal */}
             <AnimatePresence>
                 {selectedWorkout && (
                     <motion.div 
@@ -106,11 +115,8 @@ function Workouts() {
                             }}
                         >
                             <div className="modal-header">
-                                <button className="close-btn" onClick={closeModal}>
-                                    ✕
-                                </button>
+                                <button className="close-btn" onClick={closeModal}>✕</button>
                             </div>
-
                             <div className="workout-sheet-content">
                                 <h2>{selectedWorkout.name}</h2>
                                 <p><strong>Category:</strong> {selectedWorkout.category}</p>

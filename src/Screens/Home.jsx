@@ -1,8 +1,8 @@
+// src/Screens/Home.jsx
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import AppButton from "../Components/AppButton";
-import { IoBarbellOutline, IoFitnessOutline, IoTrophyOutline } from "react-icons/io5";
-import { FaDumbbell } from "react-icons/fa6";
+import { IoBarbellOutline, IoFitnessOutline } from "react-icons/io5";
 import { motion } from "framer-motion";
 import { getRandomChallenge } from "../data/workouts.js";
 import "react-circular-progressbar/dist/styles.css";
@@ -15,11 +15,6 @@ function Home() {
     const [greeting, setGreeting] = useState("");
     const [quote, setQuote] = useState("");
     const [workouts, setWorkouts] = useState([]);
-
-    const userStats = {
-        streak: 5, // Example streak
-        goalCompletion: 65, // Example progress
-    };
 
     useEffect(() => {
         const hour = new Date().getHours();
@@ -35,14 +30,13 @@ function Home() {
         ];
         setQuote(quotes[Math.floor(Math.random() * quotes.length)]);
 
-        // Get CSS variable color
         const lime = getComputedStyle(document.documentElement).getPropertyValue("--color-lime").trim();
 
         setWorkouts([
-            { name: "Push", icon: <IoBarbellOutline />, color: lime, filter: "Push" },
-            { name: "Pull", icon: <FaDumbbell />, color: lime, filter: "Pull" },
-            { name: "Legs", icon: <IoBarbellOutline />, color: lime, filter: "Legs" },
-            { name: "Full Body", icon: <FaDumbbell />, color: lime, filter: "Full Body" }
+            { name: "Push", color: lime, filter: "Push" },
+            { name: "Pull", color: lime, filter: "Pull" },
+            { name: "Legs", color: lime, filter: "Legs" },
+            { name: "Full Body", color: lime, filter: "Full Body" }
         ]);
     }, []);
 
@@ -54,31 +48,19 @@ function Home() {
             exit={{ opacity: 0, y: -20 }}
             transition={{ duration: 0.4, ease: "easeOut" }}
         >
-            {/* Header */}
+            {/* Greeting */}
             <header className="home-header">
                 <h1>{greeting}</h1>
                 <p>{quote}</p>
             </header>
 
-            {/* Quick Actions */}
-            <motion.div 
-                className="quick-actions"
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.2, duration: 0.5 }}
-            >
-                <AppButton className="action-btn" onClick={() => navigate("/workouts")}>
-                    <IoFitnessOutline className="action-icon" />
-                    Start Workout
-                </AppButton>
+            {/* Daily Challenge */}
+            <section className="daily-challenge">
+                <h2>💪 Daily Challenge</h2>
+                <p>{dailyChallenge}</p>
+            </section>
 
-                <AppButton className="action-btn secondary" onClick={() => navigate("/stats")}>
-                    <IoBarbellOutline className="action-icon" />
-                    View Stats
-                </AppButton>
-            </motion.div>
-
-            {/* Workout Grid */}
+            {/* Workout Type Grid */}
             <motion.section 
                 className="workout-grid"
                 initial={{ opacity: 0, y: 20 }}
@@ -94,26 +76,27 @@ function Home() {
                         style={{ backgroundColor: workout.color }}
                         onClick={() => navigate(`/workouts?filter=${encodeURIComponent(workout.filter)}`)}
                     >
-                        <div className="workout-icon">{workout.icon}</div>
                         <h2>{workout.name}</h2>
                     </motion.div>
                 ))}
             </motion.section>
 
-            {/* Progress */}
-            <section className="progress-section">
-                <div className="progress-item">
-                    <IoTrophyOutline className="streak-icon" />
-                    <h2>{userStats.streak}🔥</h2>
-                    <p>Day Streak</p>
-                </div>
-            </section>
-
-            {/* Daily Challenge */}
-            <section className="daily-challenge">
-                <h2>💪 Daily Challenge</h2>
-                <p>{dailyChallenge}</p>
-            </section>
+            {/* Action Buttons */}
+            <motion.div 
+                className="quick-actions"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.2, duration: 0.5 }}
+            >
+                <AppButton className="action-btn" onClick={() => navigate("/workouts")}>
+                    <IoFitnessOutline className="action-icon" />
+                    Start Workout
+                </AppButton>
+                <AppButton className="action-btn secondary" onClick={() => navigate("/stats")}>
+                    <IoBarbellOutline className="action-icon" />
+                    View Stats
+                </AppButton>
+            </motion.div>
         </motion.div>
     );
 }

@@ -57,7 +57,7 @@ h1, h2, h3, h4, h5, h6 {
   align-items: center;
   justify-content: space-between;
   padding: 6px 0px;
-  box-shadow: 0 2px 10px var(--color-soft);
+  box-shadow: 0 2px 10px var(--color-mint);
   background: var(--color-lime);
   z-index: 1000;
   height: 60px;
@@ -76,12 +76,12 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .settings-btn {
-  color: black;
+  color: var(--color-dark);
   padding: 0 24px 0 0;
 }
 
 .app-logo {
-  font-size: 20px;
+  font-size: 24px;
   font-weight: bold;
   margin: 0;
 }
@@ -124,6 +124,7 @@ body.dark, body.dark .nav-item {
 body.dark .app-header {
   background: var(--color-dark);
   box-shadow: 0 2px 10px rgba(255, 255, 255, 0.05);
+  border-bottom: 1px solid var(--color-mint);
 }
 
 body.dark .settings-btn,
