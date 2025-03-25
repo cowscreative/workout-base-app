@@ -4,31 +4,21 @@ import AppButton from "../Components/AppButton";
 import { IoBarbellOutline, IoFitnessOutline, IoTrophyOutline } from "react-icons/io5";
 import { FaDumbbell } from "react-icons/fa6";
 import { motion } from "framer-motion";
-import { CircularProgressbar, buildStyles } from "react-circular-progressbar";
+import { getRandomChallenge } from "../data/workouts.js";
 import "react-circular-progressbar/dist/styles.css";
 import "/src/styles/Home.css";
 
+const dailyChallenge = getRandomChallenge();
+
 function Home() {
     const navigate = useNavigate();
-
-    const getColor = (cssVar) =>
-        getComputedStyle(document.documentElement).getPropertyValue(cssVar);
-      
-      const workouts = [
-        { name: "Back", icon: <IoBarbellOutline />, color: getColor("--color-lime"), filter: "Back" },
-        { name: "Chest", icon: <FaDumbbell />, color: getColor("--color-lime"), filter: "Chest" },
-        { name: "Legs", icon: <IoBarbellOutline />, color: getColor("--color-lime"), filter: "Legs" },
-        { name: "Full Body", icon: <FaDumbbell />, color: getColor("--color-lime"), filter: "Full Body" }
-      ];
-      
-
     const [greeting, setGreeting] = useState("");
     const [quote, setQuote] = useState("");
+    const [workouts, setWorkouts] = useState([]);
 
-    // Simulated user stats
     const userStats = {
-        streak: 5, // Days in a row
-        goalCompletion: 65, // Percentage of weekly goal
+        streak: 5, // Example streak
+        goalCompletion: 65, // Example progress
     };
 
     useEffect(() => {
@@ -37,7 +27,6 @@ function Home() {
         else if (hour < 18) setGreeting("Good afternoon! 🌤️");
         else setGreeting("Good evening! 🌙");
 
-        // Random motivational quotes
         const quotes = [
             "Push yourself, because no one else will do it for you.",
             "Sweat today, shine tomorrow.",
@@ -45,6 +34,16 @@ function Home() {
             "Stronger every day."
         ];
         setQuote(quotes[Math.floor(Math.random() * quotes.length)]);
+
+        // Get CSS variable color
+        const lime = getComputedStyle(document.documentElement).getPropertyValue("--color-lime").trim();
+
+        setWorkouts([
+            { name: "Push", icon: <IoBarbellOutline />, color: lime, filter: "Push" },
+            { name: "Pull", icon: <FaDumbbell />, color: lime, filter: "Pull" },
+            { name: "Legs", icon: <IoBarbellOutline />, color: lime, filter: "Legs" },
+            { name: "Full Body", icon: <FaDumbbell />, color: lime, filter: "Full Body" }
+        ]);
     }, []);
 
     return (
@@ -61,7 +60,7 @@ function Home() {
                 <p>{quote}</p>
             </header>
 
-            {/* Quick Action Buttons */}
+            {/* Quick Actions */}
             <motion.div 
                 className="quick-actions"
                 initial={{ opacity: 0, y: 20 }}
@@ -77,10 +76,9 @@ function Home() {
                     <IoBarbellOutline className="action-icon" />
                     View Stats
                 </AppButton>
-
             </motion.div>
 
-            {/* Workout Selection Grid */}
+            {/* Workout Grid */}
             <motion.section 
                 className="workout-grid"
                 initial={{ opacity: 0, y: 20 }}
@@ -102,7 +100,7 @@ function Home() {
                 ))}
             </motion.section>
 
-            {/* Streak & Goal Progress */}
+            {/* Progress */}
             <section className="progress-section">
                 <div className="progress-item">
                     <IoTrophyOutline className="streak-icon" />
@@ -114,7 +112,7 @@ function Home() {
             {/* Daily Challenge */}
             <section className="daily-challenge">
                 <h2>💪 Daily Challenge</h2>
-                <p>Do 50 push-ups today! Can you complete it?</p>
+                <p>{dailyChallenge}</p>
             </section>
         </motion.div>
     );

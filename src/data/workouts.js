@@ -1,20 +1,20 @@
-export const workoutFilters = ["All", "Chest", "Back", "Legs", "Full Body", "Core"];
+export const workoutFilters = ["All", "Push", "Pull", "Legs", "Full Body", "Core"];
 
 export const workouts = [
     // Chest - Monday
-    { name: "Bench Press", type: "Strength", icon: "barbell", tags: ["Chest"], weight: "30lbs", reps: 10, rounds: 4 },
-    { name: "Incline 5° Press", type: "Strength", icon: "dumbbell", tags: ["Chest"], weight: "20lbs", reps: 10, rounds: 4 },
-    { name: "Overhead Press", type: "Strength", icon: "dumbbell", tags: ["Chest"], weight: "15lbs", reps: 10, rounds: 4 },
-    { name: "Tricep Extension", type: "Strength", icon: "triceps", tags: ["Chest"], weight: "20lbs", reps: 10, rounds: 4 },
-    { name: "Hanging Leg Raises", type: "Core", icon: "core", tags: ["Chest", "Core"], weight: "Bodyweight", reps: 10, rounds: 3 },
+    { name: "Bench Press", type: "Strength", icon: "barbell", tags: ["Push"], weight: "30lbs", reps: 10, rounds: 4 },
+    { name: "Incline 5° Press", type: "Strength", icon: "dumbbell", tags: ["Push"], weight: "20lbs", reps: 10, rounds: 4 },
+    { name: "Overhead Press", type: "Strength", icon: "dumbbell", tags: ["Push"], weight: "15lbs", reps: 10, rounds: 4 },
+    { name: "Tricep Extension", type: "Strength", icon: "triceps", tags: ["Push"], weight: "20lbs", reps: 10, rounds: 4 },
+    { name: "Hanging Leg Raises", type: "Core", icon: "core", tags: ["Push", "Core"], weight: "Bodyweight", reps: 10, rounds: 3 },
 
     // Back - Tuesday
-    { name: "Single Rows", type: "Strength", icon: "dumbbell", tags: ["Back"], weight: "20lbs", reps: 10, rounds: 4 },
-    { name: "Lat Pull Down", type: "Machine", icon: "machine", tags: ["Back"], weight: "85lbs", reps: 10, rounds: 4 },
-    { name: "Bicep Curls", type: "Strength", icon: "biceps", tags: ["Back"], weight: "12.5lbs", reps: 10, rounds: 4 },
-    { name: "Bent Over Dumbbell Rows", type: "Strength", icon: "dumbbell", tags: ["Back"], weight: "15lbs", reps: 10, rounds: 4 },
-    { name: "Dumbbell Shrugs", type: "Strength", icon: "dumbbell", tags: ["Back"], weight: "20lbs", reps: 10, rounds: 4 },
-    { name: "Bicycles", type: "Core", icon: "core", tags: ["Back", "Core"], weight: "Bodyweight", reps: 100, rounds: 1 },
+    { name: "Single Rows", type: "Strength", icon: "dumbbell", tags: ["Pull"], weight: "20lbs", reps: 10, rounds: 4 },
+    { name: "Lat Pull Down", type: "Machine", icon: "machine", tags: ["Pull"], weight: "85lbs", reps: 10, rounds: 4 },
+    { name: "Bicep Curls", type: "Strength", icon: "biceps", tags: ["Pull"], weight: "12.5lbs", reps: 10, rounds: 4 },
+    { name: "Bent Over Dumbbell Rows", type: "Strength", icon: "dumbbell", tags: ["Pull"], weight: "15lbs", reps: 10, rounds: 4 },
+    { name: "Dumbbell Shrugs", type: "Strength", icon: "dumbbell", tags: ["Pull"], weight: "20lbs", reps: 10, rounds: 4 },
+    { name: "Bicycles", type: "Core", icon: "core", tags: ["Pull", "Core"], weight: "Bodyweight", reps: 100, rounds: 1 },
 
     // Legs - Wednesday
     { name: "Bike", type: "Cardio", icon: "bike", tags: ["Legs"], weight: "N/A", reps: "2 miles", rounds: "5 min" },
@@ -36,3 +36,22 @@ export const workouts = [
     { name: "Ab Wheel", type: "Core", icon: "core", tags: ["Core"], weight: "Bodyweight", reps: 10, rounds: 3 },
     { name: "Bicycles", type: "Core", icon: "core", tags: ["Core"], weight: "Bodyweight", reps: 100, rounds: 1 }
 ];
+
+export const dailyChallenges = [
+    "Do 50 push-ups today!",
+    "Hold a plank for 2 minutes.",
+    "Run or walk 1 mile.",
+    "Do 100 jumping jacks.",
+    "Do 30 burpees.",
+    "Stretch for 10 minutes.",
+    "Do 3 sets of 20 mountain climbers.",
+    "Do 50 bodyweight squats.",
+    "Take a 15-minute walk outside.",
+    "Do 4 rounds of kettlebell swings."
+  ];
+  
+  // Random challenge (can import this in your component)
+  export const getRandomChallenge = () => {
+    const index = Math.floor(Math.random() * dailyChallenges.length);
+    return dailyChallenges[index];
+  };

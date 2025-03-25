@@ -154,7 +154,7 @@ body.dark .home-header p {
   color: var(--color-white);
 }
 
-.filter-pill.active,
+body.dark .filter-pill.active,
 body.dark .filter-pill, body.dark .workout-card h2, body.dark .daily-challenge h2, body.dark .stat-card h2, body.dark .stat-card, body.dark .stats-card   {
   color:var(--color-dark);
 }
