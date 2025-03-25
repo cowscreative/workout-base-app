@@ -1,0 +1,51 @@
+.loading-screen {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: var(--color-mint);
+    color: var(--color-dark);
+    text-align: center;
+    padding: 0 20px;
+    transition: background-color 1s ease-in-out;
+  }
+  
+  .spinner {
+    width: 60px;
+    height: 60px;
+    border: 6px solid rgba(0, 0, 0, 0.1);
+    border-left-color: var(--color-dark);
+    border-radius: 50%;
+    animation: spin 5s linear infinite;
+    margin-bottom: 24px;
+  }
+  
+  @keyframes spin {
+    to {
+      transform: rotate(360deg);
+    }
+  }
+  
+  .loading-quote {
+    font-size: 18px;
+    font-weight: 500;
+    max-width: 400px;
+    line-height: 1.4;
+  }
+  
+  .loading-author {
+    font-size: 14px;
+    font-weight: 400;
+    color: rgba(0, 0, 0, 0.6);
+    margin-top: 8px;
+    opacity: 0;
+    animation: fadeIn 0.6s ease-in-out 0.5s forwards;
+  }
+  
+  @keyframes fadeIn {
+    to {
+      opacity: 1;
+    }
+  }
+  
