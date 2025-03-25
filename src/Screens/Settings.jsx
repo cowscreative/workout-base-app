@@ -2,9 +2,17 @@ import { useState } from "react";
 import "/src/styles/Settings.css";
 
 function Settings() {
-    const [darkMode, setDarkMode] = useState(false);
     const [notifications, setNotifications] = useState(true);
-
+    const [darkMode, setDarkMode] = useState(
+        localStorage.getItem("darkMode") === "true"
+      );
+      const toggleDarkMode = () => {
+        const newValue = !darkMode;
+        setDarkMode(newValue);
+        localStorage.setItem("darkMode", newValue);
+        document.body.classList.toggle("dark", newValue);
+      };
+      
     return (
         <div className="settings-container">
             <h2>⚙️ Settings</h2>
@@ -16,10 +24,10 @@ function Settings() {
                     <li>
                         <span>Dark Mode</span>
                         <label className="toggle-switch">
-                            <input 
-                                type="checkbox" 
-                                checked={darkMode} 
-                                onChange={() => setDarkMode(!darkMode)} 
+                        <input 
+                            type="checkbox" 
+                            checked={darkMode} 
+                            onChange={toggleDarkMode}
                             />
                             <span className="toggle-slider"></span>
                         </label>

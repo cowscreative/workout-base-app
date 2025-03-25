@@ -14,7 +14,7 @@ body {
     display: flex;
     justify-content: space-around;
     border-top: 1px solid #ddd;
-    padding-bottom: 30px;
+    padding-bottom: 40px;
 }
 
 .nav-item.active {

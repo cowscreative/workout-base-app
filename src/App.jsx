@@ -7,6 +7,7 @@ import Settings from "./Screens/Settings";
 import BottomNav from "./UI/BottomNav";
 import { IoChevronBackOutline, IoSettingsOutline } from "react-icons/io5";
 import "/src/styles/App.css";
+import { useEffect } from "react";
 
 function Header() {
     const location = useLocation();
@@ -31,6 +32,10 @@ function Header() {
 }
 
 function App() {
+    useEffect(() => {
+        const isDark = localStorage.getItem("darkMode") === "true";
+        document.body.classList.toggle("dark", isDark);
+    }, []);
     return (
         <>
             <Header />
