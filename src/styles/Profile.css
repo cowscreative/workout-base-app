@@ -74,3 +74,42 @@
     background: #ff4d4d;
     color: white;
 }
+.greeting-line {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+    font-size: 1.8rem;
+  }
+  
+  .name-inline-input {
+    font-size: 1.8rem;
+    font-weight: bold;
+    border: none;
+    background: transparent;
+    border-bottom: 2px solid var(--color-dark);
+    outline: none;
+    max-width: 150px;
+    padding: 4px 6px;
+    color: var(--color-white);
+  }
+
+
+  
+  .editable-name {
+    cursor: pointer;
+    font-weight: bold;
+    display: inline-flex;
+    align-items: center;
+  }
+
+  body.dark .editable-name {
+    color: var(--color-white);
+  }
+  
+  .edit-icon {
+    margin-left: 6px;
+    font-size: 1rem;
+    opacity: 0.6;
+  }
+  

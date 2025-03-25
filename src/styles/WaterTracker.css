@@ -1,0 +1,35 @@
+.water-tracker {
+    margin: 30px 0;
+    background: var(--color-mint);
+    padding: 16px;
+    border-radius: 12px;
+    text-align: center;
+    font-weight: bold;
+  }
+  .water-tracker p {
+    font-size: .8em;
+    font-weight: 300;
+  }
+  body.dark .water-tracker h2, body.dark .water-tracker p {
+    color: var(--color-dark);
+  }
+  .water-cups {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 10px;
+    gap: 10px;
+  }
+  
+  .cup {
+    font-size: 24px;
+    cursor: pointer;
+    opacity: 0.3;
+    transition: all 0.2s ease;
+  }
+  
+  .cup.filled {
+    opacity: 1;
+    transform: scale(1.2);
+  }
+  

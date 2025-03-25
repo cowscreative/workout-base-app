@@ -16,3 +16,12 @@ export function getWorkoutLogs() {
 export function clearWorkoutLogs() {
     localStorage.removeItem(STORAGE_KEY);
 }
+
+export function clearWaterTracker() {
+    localStorage.removeItem("water-tracker");
+  }
+
+export function clearDailyChallenge() {
+    localStorage.removeItem("daily_challenge_status");
+    localStorage.removeItem("daily_challenge_date");
+}

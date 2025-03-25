@@ -13,7 +13,7 @@
     display: flex;
     justify-content: center;
     gap: 12px;
-    margin: 20px;
+    margin: 20px 0;
 }
 
 /* Workout Grid */
@@ -58,6 +58,15 @@
 }
 
 /* Daily Challenge */
+/* Make quote smaller and soft */
+.quote-text {
+    font-style: italic;
+    font-size: 14px;
+    margin-bottom: 12px;
+    color: var(--color-dark);
+}
+
+/* Daily Challenge Section */
 .daily-challenge {
     margin-top: 20px;
     background: var(--color-mint);
@@ -65,4 +74,46 @@
     border-radius: 10px;
     font-weight: bold;
     color: black;
+    text-align: center;
+}
+
+.home-stats {
+    display: flex;
+    justify-content: space-between;
+    gap: 16px;
+    margin: 25px 0;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    flex-wrap: wrap;
+}
+
+.stats-card {
+    flex: 1;
+    min-width: 130px;
+    background: var(--color-mint);
+    border-radius: 10px;
+    padding: 12px;
+    text-align: center;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+    transition: transform 0.2s ease;
+}
+
+.stats-card:hover {
+    transform: translateY(-2px);
+}
+
+body.dark .stats-card h3 {
+    margin: 0;
+    font-size: 22px;
+    color: var(--color-dark);
+}
+
+.stats-card p {
+    margin: 4px 0 0;
+    font-size: 14px;
+}
+
+.padding-above {
+    margin-top: 2em;
+    font-size: 2em;
 }

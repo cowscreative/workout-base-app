@@ -41,7 +41,7 @@ function Workouts() {
             exit={{ opacity: 0, y: -20 }}
             transition={{ duration: 0.4, ease: "easeOut" }}
         >
-            <h2>💪 Choose Your Workout</h2>
+            <h2>Choose Your Workout</h2>
 
             <div className="filter-container">
                 {workoutFilters.map((filter) => (

@@ -1,0 +1,57 @@
+.daily-challenge-box {
+    background: var(--color-mint);
+    padding: 20px;
+    margin-top: 25px;
+    border-radius: 16px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease;
+  }
+  
+  body.dark .daily-challenge-box h2 {
+    color: var(--color-dark);
+  }
+  .daily-challenge-box:hover {
+    transform: translateY(-2px);
+  }
+  
+  .daily-challenge-title {
+    margin-bottom: 10px;
+    color: var(--color-dark);
+  }
+  
+  .inline-challenge {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 15px;
+    font-weight: 500;
+    color: var(--color-dark);
+    cursor: pointer;
+  }
+  
+  .inline-challenge input[type="checkbox"] {
+    width: 22px;
+    height: 22px;
+    accent-color: var(--color-lime);
+    transform: scale(1.1);
+  }
+  
+  .inline-text {
+    flex: 1;
+    line-height: 1.4;
+  }
+  
+  @media (max-width: 600px) {
+    .daily-challenge-title {
+    }
+  
+    .inline-challenge {
+      font-size: 14px;
+    }
+  
+    .inline-challenge input[type="checkbox"] {
+      width: 20px;
+      height: 20px;
+    }
+  }
+  
