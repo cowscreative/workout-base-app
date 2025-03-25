@@ -1,6 +1,5 @@
 .stats-container {
     text-align: center;
-    background: #f8f9fb;
     min-height: 100vh;
     align-items: center;
     padding-top: 20px; /* Keep vertical padding */
@@ -12,17 +11,6 @@
     margin-bottom: 20px;
 }
 
-.stats-header h1 {
-    font-size: 24px;
-    font-weight: bold;
-    color: #222;
-}
-
-.stats-header p {
-    font-size: 14px;
-    color: gray;
-}
-
 /* Stats Overview */
 .stats-overview {
     display: flex;
@@ -32,7 +20,7 @@
 }
 
 .stats-card {
-    background: white;
+    background: var(--color-white);
     padding: 16px;
     border-radius: 12px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
@@ -43,17 +31,6 @@
 
 .stats-card:hover {
     box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
-}
-
-.stats-card h2 {
-    font-size: 22px;
-    font-weight: bold;
-    color: black;
-}
-
-.stats-card p {
-    font-size: 14px;
-    color: gray;
 }
 
 /* Progress Section */
@@ -73,5 +50,4 @@
 .progress-item p {
     margin-top: 8px;
     font-size: 14px;
-    color: gray;
 }

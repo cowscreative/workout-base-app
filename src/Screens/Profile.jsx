@@ -6,10 +6,10 @@ import "/src/styles/Profile.css";
 
 function Profile() {
     const [user, setUser] = useState({
-        email: "you@example.com",
+        email: "gibson@cowscreative.com",
         user_metadata: {
-            name: "Dev User",
-            avatar_url: "https://via.placeholder.com/100x100"
+            name: "Gibson",
+            avatar_url: "/src/img/profile.png"
         }
     });
 

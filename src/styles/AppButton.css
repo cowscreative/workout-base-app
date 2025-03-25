@@ -2,8 +2,8 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background: black;
-    color: white;
+    background: var(--color-dark);
+    color: var(--color-white);
     border: none;
     padding: 12px;
     border-radius: 25px;
@@ -15,8 +15,9 @@
 
 .app-button .action-icon {
     font-size: 18px;
-    margin-right: 8px;
+    margin-right: 10px;
 }
+
 
 .app-button:active {
     transform: scale(0.96);
@@ -24,7 +25,8 @@
 }
 
 .app-button.secondary {
-    background: gray;
+    background: var(--color-mint);
+    color: var(--color-dark);
 }
 
 .app-button.logout {

@@ -3,7 +3,6 @@
 /* ========================= */
 .workouts-container {
     text-align: center;
-    background: #f8f9fb;
     min-height: 100vh;
     align-items: center;
     padding-top: 20px; /* Keep vertical padding */
@@ -11,41 +10,39 @@
 }
 
 /* ========================= */
-/* Title Styles */
-/* ========================= */
-h2 {
-    font-size: 24px;
-    font-weight: bold;
-    color: #222;
-    margin-bottom: 15px;
-}
-
-/* ========================= */
 /* Filter Buttons */
 /* ========================= */
 .filter-container {
     display: flex;
-    justify-content: center;
+    overflow-x: auto;
     gap: 10px;
-    margin-bottom: 20px;
-    flex-wrap: wrap;
-}
-
-.filter-pill {
-    background: rgba(0, 0, 0, 0.1);
-    color: black;
+    margin: 20px 0;
+    padding: 0 10px;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+  }
+  
+  .filter-container::-webkit-scrollbar {
+    display: none; /* hide scroll bar on mobile */
+  }
+  
+  .filter-pill {
+    flex: 0 0 auto;
+    scroll-snap-align: start;
+    white-space: nowrap;
     border: none;
     padding: 8px 16px;
     border-radius: 20px;
-    font-size: 14px;
     cursor: pointer;
     transition: 0.3s ease-in-out;
-}
+    background: var(--color-mint);
+    color: var(--color-dark);
+  }
 
-.filter-pill.active {
-    background: black;
-    color: white;
-}
+  .filter-pill.active {
+    background: var(--color-dark);
+    color: var(--color-white);
+  }
 
 /* ========================= */
 /* Workout List Styles */
@@ -56,18 +53,23 @@ h2 {
     gap: 15px;
 }
 
+.workout-details {
+    font-size: 12px;
+    margin: 6px 0 12px 0;
+}
+
 /* Workout Item */
 .workout-item {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background: white;
     padding: 16px;
     border-radius: 12px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
     text-align: left;
     transition: all 0.3s ease;
     position: relative;
+    background: var(--color-white);
 }
 
 .workout-item:hover {
@@ -76,8 +78,6 @@ h2 {
 
 /* Workout Icon */
 .workout-icon {
-    font-size: 26px;
-    margin-right: 15px;
     color: black;
 }
 
@@ -86,16 +86,6 @@ h2 {
     flex: 1;
 }
 
-.workout-info h3 {
-    font-size: 18px;
-    margin: 0;
-    color: #222;
-}
-
-.workout-info p {
-    font-size: 14px;
-    color: gray;
-}
 
 /* ========================= */
 /* Progress Bar Styles */
@@ -103,7 +93,7 @@ h2 {
 .progress-bar {
     width: 80px;
     height: 6px;
-    background: rgba(0, 0, 0, 0.1);
+    background: var(--color-mint);
     border-radius: 5px;
     overflow: hidden;
     margin-right: 10px;
@@ -114,14 +104,14 @@ h2 {
 
 .progress-fill {
     height: 100%;
-    background: black;
+    background: var(--color-dark);
     transition: width 0.5s ease-in-out;
 }
 
 /* Check Icon */
 .check-icon {
     font-size: 18px;
-    color: black;
+    color :var(--color-dark);
     margin-left: 10px;
 }
 
@@ -181,9 +171,9 @@ h2 {
     border: none;
     font-size: 24px;
     cursor: pointer;
-    color: gray;
+    color: var(--color-gray);
 }
 
 .close-btn:hover {
-    color: black;
+    color: var(--color-dark);
 }

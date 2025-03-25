@@ -6,6 +6,7 @@ import Stats from "./Screens/Stats";
 import Profile from "./Screens/Profile";
 import Settings from "./Screens/Settings";
 import BottomNav from "./UI/BottomNav";
+import ScrollToTop from "./Components/ScrollToTop.jsx"; // NEW
 import { IoChevronBackOutline, IoSettingsOutline } from "react-icons/io5";
 import "/src/styles/App.css";
 
@@ -36,13 +37,15 @@ function App() {
         const isDark = localStorage.getItem("darkMode") === "true";
         if (isDark) {
             document.body.classList.add("dark");
-          } else {
+        } else {
             document.body.classList.remove("dark");
-          }          
+        }
     }, []);
+
     return (
         <>
             <Header />
+            <ScrollToTop /> {/* Auto-scroll on tab/page change */}
             <div className="container">
                 <Routes>
                     <Route path="/" element={<Home />} />

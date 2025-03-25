@@ -1,6 +1,5 @@
 .settings-container {
     text-align: center;
-    background: #f8f9fb;
     min-height: 100vh;
     align-items: center;
     padding-top: 20px; /* Keep vertical padding */
@@ -14,12 +13,6 @@
     padding-bottom: 10px;
 }
 
-.settings-section h3 {
-    font-size: 18px;
-    font-weight: bold;
-    margin-bottom: 10px;
-}
-
 /* Settings List */
 .settings-list {
     list-style: none;
@@ -31,7 +24,6 @@
     justify-content: space-between;
     align-items: center;
     padding: 12px 0;
-    font-size: 16px;
 }
 
 /* Toggle Switch Styling */
@@ -54,7 +46,7 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: #ccc;
+    background-color: var(--color-mint);
     border-radius: 20px;
     transition: 0.3s;
 }
