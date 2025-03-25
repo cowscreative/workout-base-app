@@ -11,6 +11,7 @@ function DailyChallenge() {
   const [completed, setCompleted] = useState(false);
   const [showConfetti, setShowConfetti] = useState(false);
   const [hideBox, setHideBox] = useState(false);
+  const [ready, setReady] = useState(false); // wait to mount until loaded
   const [width, height] = useWindowSize();
 
   useEffect(() => {
@@ -32,6 +33,10 @@ function DailyChallenge() {
       setCompleted(isCompleted);
       if (isCompleted) setHideBox(true);
     }
+
+    // Delay showing for smooth animation order
+    const timer = setTimeout(() => setReady(true), 150); // slight delay
+    return () => clearTimeout(timer);
   }, []);
 
   const handleComplete = () => {
@@ -61,13 +66,13 @@ function DailyChallenge() {
         )}
 
       <AnimatePresence>
-        {!hideBox && (
+        {ready && !hideBox && (
           <motion.div
             className="daily-challenge-box"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -30 }}
-            transition={{ duration: 0.5 }}
+            transition={{ duration: 0.45, ease: [0.33, 1, 0.68, 1] }}
           >
             <h2 className="daily-challenge-title">Daily Challenge</h2>
             <label className="inline-challenge">

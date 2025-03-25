@@ -45,7 +45,7 @@ function App() {
     document.body.classList.toggle("dark", isDark);
 
     // Soft loading screen
-    const timeout = setTimeout(() => setLoading(false), 3500);
+    const timeout = setTimeout(() => setLoading(false), 1500);
     return () => clearTimeout(timeout);
   }, []);
 

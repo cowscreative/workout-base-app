@@ -42,9 +42,6 @@
   }
   
   @media (max-width: 600px) {
-    .daily-challenge-title {
-    }
-  
     .inline-challenge {
       font-size: 14px;
     }
