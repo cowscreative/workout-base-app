@@ -70,3 +70,19 @@ body.dark .app-header {
   background: rgba(0, 0, 0, 0.95);
   box-shadow: 0 2px 10px rgba(255, 255, 255, 0.05);
 }
+
+body.dark .settings-container {
+  background: rgba(0, 0, 0, 0.95);
+}
+
+body.dark h1, body.dark h2, body.dark h3, body.dark h4, body.dark h5, body.dark h6, body.dark .nav-item.active {
+  color: #fff;
+}
+
+body.dark .bottom-nav {
+  background: black;
+}
+
+body.dark input:checked + .toggle-slider {
+  background: grey;
+}

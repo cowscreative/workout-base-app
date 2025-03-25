@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { Routes, Route, useLocation, useNavigate } from "react-router-dom";
 import Home from "./Screens/Home";
 import Workouts from "./Screens/Workouts";
@@ -7,7 +8,6 @@ import Settings from "./Screens/Settings";
 import BottomNav from "./UI/BottomNav";
 import { IoChevronBackOutline, IoSettingsOutline } from "react-icons/io5";
 import "/src/styles/App.css";
-import { useEffect } from "react";
 
 function Header() {
     const location = useLocation();
@@ -34,7 +34,11 @@ function Header() {
 function App() {
     useEffect(() => {
         const isDark = localStorage.getItem("darkMode") === "true";
-        document.body.classList.toggle("dark", isDark);
+        if (isDark) {
+            document.body.classList.add("dark");
+          } else {
+            document.body.classList.remove("dark");
+          }          
     }, []);
     return (
         <>
