@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { IoSettingsOutline, IoLogOutOutline } from "react-icons/io5";
 import { FaUserEdit } from "react-icons/fa";
-import { supabase } from "/src/data/supabaseClient";
 import { useNavigate } from "react-router-dom";
 import "/src/styles/Profile.css";
 
